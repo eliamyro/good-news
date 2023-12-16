@@ -7,7 +7,6 @@
 
 import UIKit
 
-// swiftlint:disable line_length
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?

@@ -29,14 +29,14 @@ class DInjection: DependencyContainer {
     }
 
     private func registerSources() {
-
+        register(HTTPClient.self) { HTTPClientImp() }
     }
 
     private func registerRepositories() {
-
+        register(GoodNewsRepo.self) { GoodNewsRepoImp() }
     }
 
     private func registerUseCases() {
-        register(DummyUC.self) { DummyUCImp() }
+        register(DummyUC.self) { DummyUCImp() } // TODO: Remove
     }
 }
