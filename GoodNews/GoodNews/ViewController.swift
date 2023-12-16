@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = .red
+        view.backgroundColor = .systemBackground
         print(APIKey.shared.apiKey)
         print(dummyUC.execute())
 //        fetchTopHeadlines(for: "gr")

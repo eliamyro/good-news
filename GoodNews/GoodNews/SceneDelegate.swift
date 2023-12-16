@@ -21,13 +21,36 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         DIInitializer.setup()
 
         window = UIWindow(windowScene: windowScene)
-        window?.rootViewController = ViewController()
+        window?.rootViewController = createTabBar()
         window?.makeKeyAndVisible()
+
+        configureNavigationBar()
     }
 
     private func normalExecutionPath() -> Bool {
         return NSClassFromString("XCTestCase") == nil
 
+    }
+
+    private func createTabBar() -> UITabBarController {
+        let tabBar = UITabBarController()
+        UITabBar.appearance().tintColor = .systemGreen
+        UITabBar.appearance().backgroundColor = .systemCyan.withAlphaComponent(0.1)
+        tabBar.viewControllers = [navigationController(for: .topHeadlines), navigationController(for: .search), navigationController(for: .favorites)]
+
+        return tabBar
+    }
+
+    private func navigationController(for item: TabBarItem) -> UINavigationController {
+        let controller = item.controller
+        controller.title = item.title
+        controller.tabBarItem = UITabBarItem(title: item.title, image: UIImage(systemName: item.icon), tag: item.tag)
+
+        return UINavigationController(rootViewController: controller)
+    }
+
+    private func configureNavigationBar() {
+        UINavigationBar.appearance().tintColor = .systemGreen
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
