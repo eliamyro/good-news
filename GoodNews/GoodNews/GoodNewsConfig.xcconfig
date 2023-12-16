@@ -1,0 +1,11 @@
+//
+//  GoodNewsConfig.xcconfig
+//  GoodNews
+//
+//  Created by Elias Myronidis on 16/12/23.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+API_KEY = 13081571ca334ef8aab4e2484c1d524c
