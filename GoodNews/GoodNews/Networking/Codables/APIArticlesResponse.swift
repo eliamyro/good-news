@@ -32,3 +32,17 @@ struct APIArticleSource: Codable, Equatable {
     var id: String?
     var name: String?
 }
+
+
+extension APIArticlesResponse {
+    static var fakeAPIArticlesResponse = APIArticlesResponse(totalResults: 1, articles: [
+        APIArticle(source: APIArticleSource(id: "Dummy id", name: "Dummy source name"),
+                   author: "Dummy author",
+                   title: "Dummy title",
+                  description: "Dummy description",
+                   url: "http://www.dummyUrl",
+                  imageUrl: "http://www.dummyUrlToImage",
+                  publishedAt: "2023-12-30",
+                  content: "Dummy content")
+    ])
+}
