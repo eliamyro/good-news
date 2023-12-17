@@ -28,5 +28,16 @@ class TopHeadlinesVC: UIViewController {
         super.viewDidLoad()
 
         view.backgroundColor = .systemBackground
+        viewModel.getTopHeadlines()
+    }
+
+    private func bind() {
+        viewModel.$apiArticles
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] _ in
+                guard let self else { return }
+                // TODO: Reload tableview
+            }
+            .store(in: &viewModel.cancellables)
     }
 }

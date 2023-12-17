@@ -37,6 +37,6 @@ class DInjection: DependencyContainer {
     }
 
     private func registerUseCases() {
-        register(DummyUC.self) { DummyUCImp() } // TODO: Remove
+        register(GetTopHeadlinesUC.self) { GetTopHeadlinesUCImp() }
     }
 }
