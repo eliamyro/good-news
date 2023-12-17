@@ -15,6 +15,17 @@ struct APIArticlesResponse: Codable, Equatable {
 struct APIArticle: Codable, Equatable {
     var source: APIArticleSource?
     var author: String?
+    var title: String?
+    var description: String?
+    var url: String?
+    var imageUrl: String?
+    var publishedAt: String?
+    var content: String?
+
+    enum CodingKeys: String, CodingKey {
+        case source, author, title, description, url, publishedAt, content
+        case imageUrl = "imageToUrl"
+    }
 }
 
 struct APIArticleSource: Codable, Equatable {

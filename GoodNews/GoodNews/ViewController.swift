@@ -21,7 +21,7 @@ class ViewController: UIViewController {
         view.backgroundColor = .systemBackground
         print(APIKey.shared.apiKey)
         print(dummyUC.execute())
-//        fetchTopHeadlines(for: "gr")
+        fetchTopHeadlines(for: "gr")
     }
 
     // testing
