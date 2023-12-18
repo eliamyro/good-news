@@ -12,7 +12,8 @@ struct APIArticlesResponse: Codable, Equatable {
     var articles: [APIArticle]?
 }
 
-struct APIArticle: Codable, Equatable {
+struct APIArticle: Codable, Equatable, Hashable {
+    let id = UUID().uuidString
     var source: APIArticleSource?
     var author: String?
     var title: String?
@@ -26,13 +27,16 @@ struct APIArticle: Codable, Equatable {
         case source, author, title, description, url, publishedAt, content
         case imageUrl = "imageToUrl"
     }
+
+    public func hash(into hasher: inout Hasher) {
+            return hasher.combine(id)
+    }
 }
 
 struct APIArticleSource: Codable, Equatable {
     var id: String?
     var name: String?
 }
-
 
 extension APIArticlesResponse {
     static var fakeAPIArticlesResponse = APIArticlesResponse(totalResults: 1, articles: [
