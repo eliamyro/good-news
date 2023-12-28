@@ -18,7 +18,7 @@ class GoodNewsRepoMock: GoodNewsRepo {
         @Unwrapable public var getTopHeadlines: (() -> AnyPublisher<APIArticlesResponse, RequestError>)?
     }
 
-    func getTopHeadlines(for country: String) -> AnyPublisher<APIArticlesResponse, RequestError> {
+    func getTopHeadlines(for country: String, category: String) -> AnyPublisher<APIArticlesResponse, RequestError> {
         return stub.$getTopHeadlines.safeValue()()
     }
 }

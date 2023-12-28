@@ -9,13 +9,15 @@ import Combine
 import Foundation
 
 protocol GoodNewsRepo {
-    func getTopHeadlines(for country: String) -> AnyPublisher<APIArticlesResponse, RequestError>
+    func getTopHeadlines(for country: String, category: String) -> AnyPublisher<APIArticlesResponse, RequestError>
 }
 
 class GoodNewsRepoImp: GoodNewsRepo {
     @Injected var client: HTTPClient
 
-    func getTopHeadlines(for country: String) -> AnyPublisher<APIArticlesResponse, RequestError> {
-        return client.sendRequest(endpoint: GoodNewsEndpoint.topHeadlines(country: country), responseType: APIArticlesResponse.self)
+    func getTopHeadlines(for country: String, category: String) -> AnyPublisher<APIArticlesResponse, RequestError> {
+        return client.sendRequest(endpoint: GoodNewsEndpoint.topHeadlines(country: country,
+                                                                          category: category),
+                                  responseType: APIArticlesResponse.self)
     }
 }

@@ -9,14 +9,14 @@ import Combine
 import Foundation
 
 protocol GetTopHeadlinesUC {
-    func execute(country: String) -> AnyPublisher<APIArticlesResponse, RequestError>
+    func execute(country: String, category: String) -> AnyPublisher<APIArticlesResponse, RequestError>
 }
 
 class GetTopHeadlinesUCImp: GetTopHeadlinesUC {
 
     @Injected var repo: GoodNewsRepo
 
-    func execute(country: String) -> AnyPublisher<APIArticlesResponse, RequestError> {
-        repo.getTopHeadlines(for: country)
+    func execute(country: String, category: String) -> AnyPublisher<APIArticlesResponse, RequestError> {
+        repo.getTopHeadlines(for: country, category: category)
     }
 }

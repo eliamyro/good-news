@@ -8,7 +8,7 @@
 import Foundation
 
 enum GoodNewsEndpoint {
-    case topHeadlines(country: String)
+    case topHeadlines(country: String, category: String)
 }
 
 extension GoodNewsEndpoint: Endpoint {
@@ -28,11 +28,17 @@ extension GoodNewsEndpoint: Endpoint {
 
     var queryItems: [URLQueryItem] {
         switch self {
-        case .topHeadlines(let country):
-            return [
+        case .topHeadlines(let country, let category):
+            var queryItems = [
                 URLQueryItem(name: "apiKey", value: APIKey.shared.apiKey),
                 URLQueryItem(name: "country", value: country)
             ]
+            
+            if category != "All" {
+                queryItems.append(URLQueryItem(name: "category", value: category))
+            }
+
+            return queryItems
         }
     }
 

@@ -8,14 +8,14 @@
 import UIKit
 
 enum TabBarItem {
-    case topHeadlines
+    case home
     case search
     case favorites
 
     var title: String {
         switch self {
-        case .topHeadlines:
-            return "Top Headlines"
+        case .home:
+            return "Good News"
         case .search:
             return "Search"
         case .favorites:
@@ -25,8 +25,8 @@ enum TabBarItem {
 
     var icon: String {
         switch self {
-        case .topHeadlines:
-            return "list.star"
+        case .home:
+            return "home"
         case .search:
             return "magnifyingglass"
         case .favorites:
@@ -36,8 +36,8 @@ enum TabBarItem {
 
     var controller: UIViewController {
         switch self {
-        case .topHeadlines:
-            return TopHeadlinesVC(viewModel: TopHeadlinesVM())
+        case .home:
+            return HomeVC(viewModel: HomeVM())
         case .search:
             return ViewController()
         case .favorites:
@@ -47,7 +47,7 @@ enum TabBarItem {
 
     var tag: Int {
         switch self {
-        case .topHeadlines:
+        case .home:
             return 0
         case .search:
             return 1

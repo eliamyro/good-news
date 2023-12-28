@@ -29,7 +29,7 @@ final class GetTopHeadlinesUCTests: XCTestCase {
                 .eraseToAnyPublisher()
         }
 
-        let actualResult = r.uc.execute(country: "gr")
+        let actualResult = r.uc.execute(country: "gr", category: "Health")
 
         waitForValue(of: actualResult, value: APIArticlesResponse.fakeAPIArticlesResponse)
     }
@@ -43,7 +43,7 @@ final class GetTopHeadlinesUCTests: XCTestCase {
             Fail(error: RequestError.invalidResponse).eraseToAnyPublisher()
         }
 
-        _ = r.uc.execute(country: "gr").sink { completion in
+        _ = r.uc.execute(country: "gr", category: "Health").sink { completion in
             guard case .failure(let error) = completion else { return }
             XCTAssertEqual(error, RequestError.invalidResponse)
             exp.fulfill()
