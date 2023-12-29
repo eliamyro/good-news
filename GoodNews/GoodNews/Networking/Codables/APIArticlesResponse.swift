@@ -25,7 +25,7 @@ struct APIArticle: Codable, Equatable, Hashable {
 
     enum CodingKeys: String, CodingKey {
         case source, author, title, description, url, publishedAt, content
-        case imageUrl = "imageToUrl"
+        case imageUrl = "urlToImage"
     }
 
     public func hash(into hasher: inout Hasher) {

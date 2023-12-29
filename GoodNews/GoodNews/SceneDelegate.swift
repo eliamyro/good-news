@@ -34,8 +34,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     private func createTabBar() -> UITabBarController {
         let tabBar = UITabBarController()
-        UITabBar.appearance().tintColor = .systemGreen
-        UITabBar.appearance().backgroundColor = .systemCyan.withAlphaComponent(0.1)
+        UITabBar.appearance().tintColor = UIColor(named: "dimGray")
+        UITabBar.appearance().backgroundColor = .systemBackground
         tabBar.viewControllers = [navigationController(for: .home), navigationController(for: .search), navigationController(for: .favorites)]
 
         return tabBar
@@ -43,8 +43,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     private func navigationController(for item: TabBarItem) -> UINavigationController {
         let controller = item.controller
-        controller.title = item.title
-        controller.tabBarItem = UITabBarItem(title: item.title, image: UIImage(systemName: item.icon), tag: item.tag)
+        controller.tabBarItem = UITabBarItem(title: item.tabTitle, image: UIImage(systemName: item.icon), tag: item.tag)
 
         return UINavigationController(rootViewController: controller)
     }

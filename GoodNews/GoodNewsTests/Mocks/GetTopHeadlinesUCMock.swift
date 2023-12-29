@@ -21,6 +21,4 @@ class GetTopHeadlinesUCMock: GetTopHeadlinesUC {
     func execute(country: String, category: String) -> AnyPublisher<APIArticlesResponse, RequestError> {
         return stub.$execute.safeValue()()
     }
-
-
 }

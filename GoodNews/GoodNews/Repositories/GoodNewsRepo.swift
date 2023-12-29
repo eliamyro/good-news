@@ -6,10 +6,11 @@
 //
 
 import Combine
-import Foundation
+import UIKit
 
 protocol GoodNewsRepo {
     func getTopHeadlines(for country: String, category: String) -> AnyPublisher<APIArticlesResponse, RequestError>
+    func downloadImage(imageUrl: String) -> AnyPublisher<UIImage?, Never>
 }
 
 class GoodNewsRepoImp: GoodNewsRepo {
@@ -19,5 +20,9 @@ class GoodNewsRepoImp: GoodNewsRepo {
         return client.sendRequest(endpoint: GoodNewsEndpoint.topHeadlines(country: country,
                                                                           category: category),
                                   responseType: APIArticlesResponse.self)
+    }
+
+    func downloadImage(imageUrl: String) -> AnyPublisher<UIImage?, Never> {
+        return client.downloadImage(endpoint: GoodNewsEndpoint.downloadImage(imageUrl: imageUrl))
     }
 }

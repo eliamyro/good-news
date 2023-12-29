@@ -9,6 +9,7 @@ import Foundation
 
 enum GoodNewsEndpoint {
     case topHeadlines(country: String, category: String)
+    case downloadImage(imageUrl: String)
 }
 
 extension GoodNewsEndpoint: Endpoint {
@@ -16,6 +17,8 @@ extension GoodNewsEndpoint: Endpoint {
         switch self {
         case .topHeadlines:
             return "newsapi.org"
+        case .downloadImage:
+            return ""
         }
     }
 
@@ -23,6 +26,8 @@ extension GoodNewsEndpoint: Endpoint {
         switch self {
         case .topHeadlines:
             return "/v2/top-headlines"
+        case .downloadImage(let imageUrl):
+            return imageUrl
         }
     }
 
@@ -39,12 +44,14 @@ extension GoodNewsEndpoint: Endpoint {
             }
 
             return queryItems
+        case .downloadImage:
+            return []
         }
     }
 
     var method: RequestMethod {
         switch self {
-        case .topHeadlines:
+        case .topHeadlines, .downloadImage:
                 return .get
         }
     }

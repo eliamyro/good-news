@@ -14,7 +14,7 @@ class NewsTagCell: UICollectionViewCell {
     private lazy var containerView: UIView = {
         let view = UIView()
         view.backgroundColor = .systemGray5
-        view.layer.cornerRadius = 10
+        view.layer.cornerRadius = 12
         view.clipsToBounds = true
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.shadowColor = UIColor.systemGray.withAlphaComponent(0.5).cgColor
@@ -54,19 +54,19 @@ class NewsTagCell: UICollectionViewCell {
 
     func setup(with model: NewsTag) {
         titleLabel.text = model.title
-        containerView.backgroundColor = model.isSelected ? .red : .systemGray4
-        titleLabel.textColor = model.isSelected ? .white : .black
+        containerView.backgroundColor = model.isSelected ? UIColor(named: "denim") : UIColor(named: "lavenderBlue")
+        titleLabel.textColor = model.isSelected ? .white : UIColor(named: "raven")
     }
 
     private func configureContainerView() {
         contentView.addSubview(containerView)
 
         NSLayoutConstraint.activate([
-            containerView.widthAnchor.constraint(greaterThanOrEqualToConstant: 40),
-            containerView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0),
-            containerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 2),
-            containerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0),
-            containerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -2)
+            containerView.widthAnchor.constraint(greaterThanOrEqualToConstant: 50),
+            containerView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            containerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            containerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            containerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
         ])
     }
 
@@ -74,10 +74,10 @@ class NewsTagCell: UICollectionViewCell {
         containerView.addSubview(titleLabel)
 
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 2),
-            titleLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 6),
-            titleLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -2),
-            titleLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -6)
+            titleLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 4),
+            titleLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 10),
+            titleLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -4),
+            titleLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10)
         ])
     }
 }

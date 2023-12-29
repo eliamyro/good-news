@@ -32,6 +32,7 @@ class HomeVC: UIViewController {
         collectionView.delegate = self
         collectionView.register(NewsTagCell.self, forCellWithReuseIdentifier: NewsTagCell.cellIdentifier)
         collectionView.contentInsetAdjustmentBehavior = .never
+        collectionView.showsHorizontalScrollIndicator = false
         collectionView.translatesAutoresizingMaskIntoConstraints = false
 
         viewModel.tagsDiffableDataSource =
@@ -102,6 +103,7 @@ class HomeVC: UIViewController {
 
     private func setupUI() {
         view.backgroundColor = .systemBackground
+        navigationItem.title = "Good News"
         setupTagsCollectionView()
         setupArticlesTableView()
         setupActivityIndicator()

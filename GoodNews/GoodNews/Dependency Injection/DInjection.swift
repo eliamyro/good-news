@@ -38,5 +38,6 @@ class DInjection: DependencyContainer {
 
     private func registerUseCases() {
         register(GetTopHeadlinesUC.self) { GetTopHeadlinesUCImp() }
+        register(DownloadImageUC.self) { DownloadImageUCImp() }
     }
 }

@@ -12,10 +12,10 @@ enum TabBarItem {
     case search
     case favorites
 
-    var title: String {
+    var tabTitle: String {
         switch self {
         case .home:
-            return "Good News"
+            return "Home"
         case .search:
             return "Search"
         case .favorites:
@@ -26,7 +26,7 @@ enum TabBarItem {
     var icon: String {
         switch self {
         case .home:
-            return "home"
+            return "house"
         case .search:
             return "magnifyingglass"
         case .favorites:
