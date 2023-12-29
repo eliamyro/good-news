@@ -54,8 +54,8 @@ class NewsTagCell: UICollectionViewCell {
 
     func setup(with model: NewsTag) {
         titleLabel.text = model.title
-        containerView.backgroundColor = model.isSelected ? UIColor(named: "denim") : UIColor(named: "lavenderBlue")
-        titleLabel.textColor = model.isSelected ? .white : UIColor(named: "raven")
+        containerView.backgroundColor = model.isSelected ? UIColor.appColor(.denim) : UIColor.appColor(.lavenderBlue)
+        titleLabel.textColor = model.isSelected ? .white : UIColor.appColor(.raven)
     }
 
     private func configureContainerView() {
